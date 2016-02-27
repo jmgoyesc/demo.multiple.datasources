@@ -15,7 +15,7 @@ public class ThirdTableDao {
 	@Qualifier("thirdJdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
 	
-	@Transactional(transactionManager="thirdTransactionManager")
+	@Transactional("thirdTransactionManager")
 	public void insert(){
 		String SQL = "insert into third_table (id, name) values (?, ?)";
 		Random r = new Random();

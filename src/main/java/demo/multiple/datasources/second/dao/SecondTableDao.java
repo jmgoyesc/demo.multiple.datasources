@@ -15,7 +15,7 @@ public class SecondTableDao {
 	@Qualifier("secondJdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
 	
-	@Transactional(transactionManager="secondTransactionManager")
+	@Transactional("secondTransactionManager")
 	public void insert(){
 		String SQL = "insert into second_table (id, name) values (?, ?)";
 		Random r = new Random();

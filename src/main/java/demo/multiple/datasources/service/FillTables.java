@@ -21,7 +21,7 @@ public class FillTables {
 	@Autowired
 	private FirstTableRepo firstTableRepo;
 
-	@Transactional(transactionManager="globalTransactionManager")
+	@Transactional("globalTransactionManager")
 	public void fill(){
 		firstTableRepo.save(FirstTableEntity.createNew());
 		secondTableDao.insert();
