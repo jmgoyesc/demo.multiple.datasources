@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class SecondTableDao {
@@ -14,6 +15,7 @@ public class SecondTableDao {
 	@Qualifier("secondJdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
 	
+	@Transactional(transactionManager="secondTransactionManager")
 	public void insert(){
 		String SQL = "insert into second_table (id, name) values (?, ?)";
 		Random r = new Random();
