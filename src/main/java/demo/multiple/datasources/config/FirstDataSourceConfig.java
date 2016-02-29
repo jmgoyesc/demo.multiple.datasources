@@ -21,6 +21,7 @@ public class FirstDataSourceConfig {
 	    return DataSourceBuilder.create().build();
 	}
 
+	@Primary
     @Bean(name = "transactionManager")
     public PlatformTransactionManager transactionManager(@Qualifier("firstDatasource") DataSource dataSource) {
     	DataSourceTransactionManager txManager = new DataSourceTransactionManager(dataSource);
